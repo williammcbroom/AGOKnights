@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AGOKnightsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AGOKnightsDBModelStoreContainer">
+    <EntitySet Name="People" EntityType="AGOKnightsDBModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Addresses" EntityType="AGOKnightsDBModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Members" EntityType="AGOKnightsDBModel.Store.Members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Organizations" EntityType="AGOKnightsDBModel.Store.Organizations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Calendars" EntityType="AGOKnightsDBModel.Store.Calendars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="AGOKnightsDBModel.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Offices" EntityType="AGOKnightsDBModel.Store.Offices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventSignIn" EntityType="AGOKnightsDBModel.Store.EventSignIn" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AddressPerson" EntityType="AGOKnightsDBModel.Store.AddressPerson" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="OrganizationMembership" Association="AGOKnightsDBModel.Store.OrganizationMembership">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Membership" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="PersonMembership" Association="AGOKnightsDBModel.Store.PersonMembership">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Membership" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationCalendar" Association="AGOKnightsDBModel.Store.OrganizationCalendar">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Calendar" EntitySet="Calendars" />
+    </AssociationSet>
+    <AssociationSet Name="EventHost" Association="AGOKnightsDBModel.Store.EventHost">
+      <End Role="Person" EntitySet="People" />
+      <End Role="NonRecurringEvent" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="EventSponsor" Association="AGOKnightsDBModel.Store.EventSponsor">
+      <End Role="Person" EntitySet="People" />
+      <End Role="NonRecurringEvent" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="NonRecurringCalendarEvent" Association="AGOKnightsDBModel.Store.NonRecurringCalendarEvent">
+      <End Role="NonRecurringEvent" EntitySet="Events" />
+      <End Role="Calendar" EntitySet="Calendars" />
+    </AssociationSet>
+    <AssociationSet Name="OfficeMember" Association="AGOKnightsDBModel.Store.OfficeMember">
+      <End Role="Office" EntitySet="Offices" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationOffice" Association="AGOKnightsDBModel.Store.OrganizationOffice">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Office" EntitySet="Offices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventSignIn_Event" Association="AGOKnightsDBModel.Store.FK_EventSignIn_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventSignIn" EntitySet="EventSignIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventSignIn_Person" Association="AGOKnightsDBModel.Store.FK_EventSignIn_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="EventSignIn" EntitySet="EventSignIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddressPerson_Address" Association="AGOKnightsDBModel.Store.FK_AddressPerson_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="AddressPerson" EntitySet="AddressPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddressPerson_Person" Association="AGOKnightsDBModel.Store.FK_AddressPerson_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="AddressPerson" EntitySet="AddressPerson" />
+    </AssociationSet>
+    <AssociationSet Name="EventAddress" Association="AGOKnightsDBModel.Store.EventAddress">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="OfficeCalendar" Association="AGOKnightsDBModel.Store.OfficeCalendar">
+      <End Role="Office" EntitySet="Offices" />
+      <End Role="Calendar" EntitySet="Calendars" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Nickname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentId" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganizationId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="OrganizationId" />
+    </Key>
+    <Property Name="OrganizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calendars">
+    <Key>
+      <PropertyRef Name="CalendarId" />
+    </Key>
+    <Property Name="CalendarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalendarAlias" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrganizationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="NonRecurringEventId" />
+    </Key>
+    <Property Name="NonRecurringEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartTime" Type="time" Nullable="false" />
+    <Property Name="EndTime" Type="time" Nullable="false" />
+    <Property Name="HostPersonId" Type="int" Nullable="false" />
+    <Property Name="SponsorPersonId" Type="int" Nullable="false" />
+    <Property Name="Recurrance" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="AddressId" Type="int" Nullable="false" />
+    <Property Name="Calendar_CalendarId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Offices">
+    <Key>
+      <PropertyRef Name="OfficeId" />
+    </Key>
+    <Property Name="OfficeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="OrganizationId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Calendar_CalendarId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventSignIn">
+    <Key>
+      <PropertyRef Name="EventsAttended_NonRecurringEventId" />
+      <PropertyRef Name="Attendees_PersonId" />
+    </Key>
+    <Property Name="EventsAttended_NonRecurringEventId" Type="int" Nullable="false" />
+    <Property Name="Attendees_PersonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AddressPerson">
+    <Key>
+      <PropertyRef Name="Addresses_Id" />
+      <PropertyRef Name="People_PersonId" />
+    </Key>
+    <Property Name="Addresses_Id" Type="int" Nullable="false" />
+    <Property Name="People_PersonId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="OrganizationMembership">
+    <End Role="Organization" Type="AGOKnightsDBModel.Store.Organizations" Multiplicity="1" />
+    <End Role="Membership" Type="AGOKnightsDBModel.Store.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Membership">
+        <PropertyRef Name="OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonMembership">
+    <End Role="Person" Type="AGOKnightsDBModel.Store.People" Multiplicity="1" />
+    <End Role="Membership" Type="AGOKnightsDBModel.Store.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="Membership">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationCalendar">
+    <End Role="Organization" Type="AGOKnightsDBModel.Store.Organizations" Multiplicity="1" />
+    <End Role="Calendar" Type="AGOKnightsDBModel.Store.Calendars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Calendar">
+        <PropertyRef Name="OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventHost">
+    <End Role="Person" Type="AGOKnightsDBModel.Store.People" Multiplicity="1" />
+    <End Role="NonRecurringEvent" Type="AGOKnightsDBModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="NonRecurringEvent">
+        <PropertyRef Name="HostPersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventSponsor">
+    <End Role="Person" Type="AGOKnightsDBModel.Store.People" Multiplicity="1" />
+    <End Role="NonRecurringEvent" Type="AGOKnightsDBModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="NonRecurringEvent">
+        <PropertyRef Name="SponsorPersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NonRecurringCalendarEvent">
+    <End Role="NonRecurringEvent" Type="AGOKnightsDBModel.Store.Events" Multiplicity="*" />
+    <End Role="Calendar" Type="AGOKnightsDBModel.Store.Calendars" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Calendar">
+        <PropertyRef Name="CalendarId" />
+      </Principal>
+      <Dependent Role="NonRecurringEvent">
+        <PropertyRef Name="Calendar_CalendarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OfficeMember">
+    <End Role="Office" Type="AGOKnightsDBModel.Store.Offices" Multiplicity="*" />
+    <End Role="Member" Type="AGOKnightsDBModel.Store.Members" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationOffice">
+    <End Role="Organization" Type="AGOKnightsDBModel.Store.Organizations" Multiplicity="1" />
+    <End Role="Office" Type="AGOKnightsDBModel.Store.Offices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventAddress">
+    <End Role="Event" Type="AGOKnightsDBModel.Store.Events" Multiplicity="*" />
+    <End Role="Address" Type="AGOKnightsDBModel.Store.Addresses" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OfficeCalendar">
+    <End Role="Office" Type="AGOKnightsDBModel.Store.Offices" Multiplicity="*" />
+    <End Role="Calendar" Type="AGOKnightsDBModel.Store.Calendars" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Calendar">
+        <PropertyRef Name="CalendarId" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="Calendar_CalendarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventSignIn_Event">
+    <End Role="Event" Type="AGOKnightsDBModel.Store.Events" Multiplicity="1" />
+    <End Role="EventSignIn" Type="AGOKnightsDBModel.Store.EventSignIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="NonRecurringEventId" />
+      </Principal>
+      <Dependent Role="EventSignIn">
+        <PropertyRef Name="EventsAttended_NonRecurringEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventSignIn_Person">
+    <End Role="EventSignIn" Type="AGOKnightsDBModel.Store.EventSignIn" Multiplicity="*" />
+    <End Role="Person" Type="AGOKnightsDBModel.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="EventSignIn">
+        <PropertyRef Name="Attendees_PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddressPerson_Address">
+    <End Role="Address" Type="AGOKnightsDBModel.Store.Addresses" Multiplicity="1" />
+    <End Role="AddressPerson" Type="AGOKnightsDBModel.Store.AddressPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AddressPerson">
+        <PropertyRef Name="Addresses_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddressPerson_Person">
+    <End Role="AddressPerson" Type="AGOKnightsDBModel.Store.AddressPerson" Multiplicity="*" />
+    <End Role="Person" Type="AGOKnightsDBModel.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="AddressPerson">
+        <PropertyRef Name="People_PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="AGOKnightsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="AGOKnightsDBModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="People" EntityType="AGOKnightsDBModel.Person" />
+          <EntitySet Name="Addresses" EntityType="AGOKnightsDBModel.Address" />
+          <EntitySet Name="Members" EntityType="AGOKnightsDBModel.Member" />
+          <EntitySet Name="Organizations" EntityType="AGOKnightsDBModel.Organization" />
+          <AssociationSet Name="OrganizationMembership" Association="AGOKnightsDBModel.OrganizationMembership">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Membership" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="PersonMembership" Association="AGOKnightsDBModel.PersonMembership">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Membership" EntitySet="Members" />
+          </AssociationSet>
+          <EntitySet Name="Calendars" EntityType="AGOKnightsDBModel.Calendar" />
+          <AssociationSet Name="OrganizationCalendar" Association="AGOKnightsDBModel.OrganizationCalendar">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Calendar" EntitySet="Calendars" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="AGOKnightsDBModel.Event" />
+          <AssociationSet Name="EventHost" Association="AGOKnightsDBModel.EventHost">
+            <End Role="Person" EntitySet="People" />
+            <End Role="NonRecurringEvent" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="EventSponsor" Association="AGOKnightsDBModel.EventSponsor">
+            <End Role="Person" EntitySet="People" />
+            <End Role="NonRecurringEvent" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="NonRecurringCalendarEvent" Association="AGOKnightsDBModel.NonRecurringCalendarEvent">
+            <End Role="NonRecurringEvent" EntitySet="Events" />
+            <End Role="Calendar" EntitySet="Calendars" />
+          </AssociationSet>
+          <EntitySet Name="Offices" EntityType="AGOKnightsDBModel.Office" />
+          <AssociationSet Name="OfficeMember" Association="AGOKnightsDBModel.OfficeMember">
+            <End Role="Office" EntitySet="Offices" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationOffice" Association="AGOKnightsDBModel.OrganizationOffice">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Office" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="EventSignIn" Association="AGOKnightsDBModel.EventSignIn">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="AddressPerson" Association="AGOKnightsDBModel.AddressPerson">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="EventAddress" Association="AGOKnightsDBModel.EventAddress">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="OfficeCalendar" Association="AGOKnightsDBModel.OfficeCalendar">
+            <End Role="Office" EntitySet="Offices" />
+            <End Role="Calendar" EntitySet="Calendars" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fname" Type="String" Nullable="false" />
+          <Property Name="Lname" Type="String" Nullable="false" />
+          <Property Name="BirthDate" Type="String" Nullable="true" />
+          <Property Name="Nickname" Type="String" Nullable="false" />
+          <Property Name="StudentId" Type="String" Nullable="true" />
+          <NavigationProperty Name="Memberships" Relationship="AGOKnightsDBModel.PersonMembership" FromRole="Person" ToRole="Membership" />
+          <NavigationProperty Name="HostedEvents" Relationship="AGOKnightsDBModel.EventHost" FromRole="Person" ToRole="NonRecurringEvent" />
+          <NavigationProperty Name="SponsoredEvents" Relationship="AGOKnightsDBModel.EventSponsor" FromRole="Person" ToRole="NonRecurringEvent" />
+          <NavigationProperty Name="EventsAttended" Relationship="AGOKnightsDBModel.EventSignIn" FromRole="Person" ToRole="Event" />
+          <NavigationProperty Name="Addresses" Relationship="AGOKnightsDBModel.AddressPerson" FromRole="Person" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <Property Name="Alias" Type="String" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="AGOKnightsDBModel.AddressPerson" FromRole="Address" ToRole="Person" />
+          <NavigationProperty Name="Events" Relationship="AGOKnightsDBModel.EventAddress" FromRole="Address" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Organization" Relationship="AGOKnightsDBModel.OrganizationMembership" FromRole="Membership" ToRole="Organization" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="AGOKnightsDBModel.PersonMembership" FromRole="Membership" ToRole="Person" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Offices" Relationship="AGOKnightsDBModel.OfficeMember" FromRole="Member" ToRole="Office" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="OrganizationId" />
+          </Key>
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Memberships" Relationship="AGOKnightsDBModel.OrganizationMembership" FromRole="Organization" ToRole="Membership" />
+          <NavigationProperty Name="Calendars" Relationship="AGOKnightsDBModel.OrganizationCalendar" FromRole="Organization" ToRole="Calendar" />
+          <NavigationProperty Name="Offices" Relationship="AGOKnightsDBModel.OrganizationOffice" FromRole="Organization" ToRole="Office" />
+        </EntityType>
+        <Association Name="OrganizationMembership">
+          <End Type="AGOKnightsDBModel.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="AGOKnightsDBModel.Member" Role="Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="OrganizationId" />
+            </Principal>
+            <Dependent Role="Membership">
+              <PropertyRef Name="OrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonMembership">
+          <End Type="AGOKnightsDBModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="AGOKnightsDBModel.Member" Role="Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="Membership">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="CalendarId" />
+          </Key>
+          <Property Name="CalendarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CalendarAlias" Type="String" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="AGOKnightsDBModel.OrganizationCalendar" FromRole="Calendar" ToRole="Organization" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Events" Relationship="AGOKnightsDBModel.NonRecurringCalendarEvent" FromRole="Calendar" ToRole="NonRecurringEvent" />
+          <NavigationProperty Name="Office" Relationship="AGOKnightsDBModel.OfficeCalendar" FromRole="Calendar" ToRole="Office" />
+        </EntityType>
+        <Association Name="OrganizationCalendar">
+          <End Type="AGOKnightsDBModel.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="AGOKnightsDBModel.Calendar" Role="Calendar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="OrganizationId" />
+            </Principal>
+            <Dependent Role="Calendar">
+              <PropertyRef Name="OrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="NonRecurringEventId" />
+          </Key>
+          <Property Name="NonRecurringEventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="StartTime" Type="Time" Nullable="false" />
+          <Property Name="EndTime" Type="Time" Nullable="false" />
+          <NavigationProperty Name="Host" Relationship="AGOKnightsDBModel.EventHost" FromRole="NonRecurringEvent" ToRole="Person" />
+          <Property Name="HostPersonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sponsor" Relationship="AGOKnightsDBModel.EventSponsor" FromRole="NonRecurringEvent" ToRole="Person" />
+          <Property Name="SponsorPersonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Calendar" Relationship="AGOKnightsDBModel.NonRecurringCalendarEvent" FromRole="NonRecurringEvent" ToRole="Calendar" />
+          <Property Name="Recurrance" Type="String" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendees" Relationship="AGOKnightsDBModel.EventSignIn" FromRole="Event" ToRole="Person" />
+          <NavigationProperty Name="Address" Relationship="AGOKnightsDBModel.EventAddress" FromRole="Event" ToRole="Address" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="EventHost">
+          <End Type="AGOKnightsDBModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="AGOKnightsDBModel.Event" Role="NonRecurringEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="NonRecurringEvent">
+              <PropertyRef Name="HostPersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventSponsor">
+          <End Type="AGOKnightsDBModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="AGOKnightsDBModel.Event" Role="NonRecurringEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="NonRecurringEvent">
+              <PropertyRef Name="SponsorPersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NonRecurringCalendarEvent">
+          <End Type="AGOKnightsDBModel.Event" Role="NonRecurringEvent" Multiplicity="*" />
+          <End Type="AGOKnightsDBModel.Calendar" Role="Calendar" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeId" />
+          </Key>
+          <Property Name="OfficeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="AGOKnightsDBModel.OfficeMember" FromRole="Office" ToRole="Member" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="AGOKnightsDBModel.OrganizationOffice" FromRole="Office" ToRole="Organization" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <NavigationProperty Name="Calendar" Relationship="AGOKnightsDBModel.OfficeCalendar" FromRole="Office" ToRole="Calendar" />
+        </EntityType>
+        <Association Name="OfficeMember">
+          <End Type="AGOKnightsDBModel.Office" Role="Office" Multiplicity="*" />
+          <End Type="AGOKnightsDBModel.Member" Role="Member" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Office">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationOffice">
+          <End Type="AGOKnightsDBModel.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="AGOKnightsDBModel.Office" Role="Office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="OrganizationId" />
+            </Principal>
+            <Dependent Role="Office">
+              <PropertyRef Name="OrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventSignIn">
+          <End Type="AGOKnightsDBModel.Event" Role="Event" Multiplicity="*" />
+          <End Type="AGOKnightsDBModel.Person" Role="Person" Multiplicity="*" />
+        </Association>
+        <Association Name="AddressPerson">
+          <End Type="AGOKnightsDBModel.Address" Role="Address" Multiplicity="*" />
+          <End Type="AGOKnightsDBModel.Person" Role="Person" Multiplicity="*" />
+        </Association>
+        <Association Name="EventAddress">
+          <End Type="AGOKnightsDBModel.Event" Role="Event" Multiplicity="*" />
+          <End Type="AGOKnightsDBModel.Address" Role="Address" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OfficeCalendar">
+          <End Type="AGOKnightsDBModel.Office" Role="Office" Multiplicity="0..1" />
+          <End Type="AGOKnightsDBModel.Calendar" Role="Calendar" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AGOKnightsDBModelStoreContainer" CdmEntityContainer="AGOKnightsDBModelContainer">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Member)">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Organization)">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calendars">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Calendar)">
+        <MappingFragment StoreEntitySet="Calendars">
+          <ScalarProperty Name="CalendarId" ColumnName="CalendarId" />
+          <ScalarProperty Name="CalendarAlias" ColumnName="CalendarAlias" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Event)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="NonRecurringEventId" ColumnName="NonRecurringEventId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="HostPersonId" ColumnName="HostPersonId" />
+          <ScalarProperty Name="SponsorPersonId" ColumnName="SponsorPersonId" />
+          <ScalarProperty Name="Recurrance" ColumnName="Recurrance" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offices">
+      <EntityTypeMapping TypeName="IsTypeOf(AGOKnightsDBModel.Office)">
+        <MappingFragment StoreEntitySet="Offices">
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="NonRecurringCalendarEvent" TypeName="AGOKnightsDBModel.NonRecurringCalendarEvent" StoreEntitySet="Events">
+      <EndProperty Name="Calendar">
+        <ScalarProperty Name="CalendarId" ColumnName="Calendar_CalendarId" />
+      </EndProperty>
+      <EndProperty Name="NonRecurringEvent">
+        <ScalarProperty Name="NonRecurringEventId" ColumnName="NonRecurringEventId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EventSignIn" TypeName="AGOKnightsDBModel.EventSignIn" StoreEntitySet="EventSignIn">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="NonRecurringEventId" ColumnName="EventsAttended_NonRecurringEventId" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="PersonId" ColumnName="Attendees_PersonId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AddressPerson" TypeName="AGOKnightsDBModel.AddressPerson" StoreEntitySet="AddressPerson">
+      <EndProperty Name="Address">
+        <ScalarProperty Name="Id" ColumnName="Addresses_Id" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="PersonId" ColumnName="People_PersonId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OfficeCalendar" TypeName="AGOKnightsDBModel.OfficeCalendar" StoreEntitySet="Offices">
+      <EndProperty Name="Calendar">
+        <ScalarProperty Name="CalendarId" ColumnName="Calendar_CalendarId" />
+      </EndProperty>
+      <EndProperty Name="Office">
+        <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

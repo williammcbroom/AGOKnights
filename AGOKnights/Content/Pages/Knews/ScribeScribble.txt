@@ -1,0 +1,23 @@
+<!--Save as ANSI text or a weird byte-order character will display on the screen-->
+<h3>Hey Alpha, here's your weekly update!</h3>
+
+<h4>Upcoming Events:</h4>
+<ol>
+<li>Singing - Thurs, Nov 6, 5:45pm, Meet at Ponsai</li>
+<li>Volleyball game vs. Chi - Thurs, Nov 6, meet at 8:45pm, Gym</li>
+<li>Service Project at Ruby's - Sat, Nov 8, 8:15am - 12:00pm, Meet at Ponsai</li>
+<li>Alpha Lunch - Sat, Nov 8, 12:30pm, (Location TBA)</li>
+<li>Bible Study (?) - Sat, Nov 8, 9pm, (Location TBA)</li>
+<li>Volleyball game vs. Freshmen - Sun, Nov 9, meet at 8:30pm, Gym</li>
+<li>Homecoming Parade - Sat, Nov 15 (more details coming)</li>
+<li>Banquet - Sat, Nov 15, 7pm, Boulevard Lanes Bowling Alley - $20 for food, drinks, and bowling all evening, casual dress</li>
+</ol>
+<h4>Important Info:</h4>
+<ol>
+<li>Shirts for old members are $15.</li>
+<li>Construction will begin on the Homecoming float next week. Be watching for announcements.</li>
+<li>Contact Chad Steeves if you'd like to wear a costume during the Homecoming parade.</li>
+<li>Josh's hair will be painted black and white next week.</li>
+<li>Junior Rep elections will take place next week.</li>
+<li>Send possible hoodie designs to Mitch.</li>
+</ol>

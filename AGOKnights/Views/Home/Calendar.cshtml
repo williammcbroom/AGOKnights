@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Page.Title = "Calendar";
+}
+
+<div class="row">
+    <div class="col-lg-offset-1 col-lg-10 col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="align-content:center">
+        <div class="jumbotron">
+            <h1>@Page.Title</h1>
+            <div class="hidden-sm hidden-xs"> 
+                <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23cccccc&amp;src=eunuch%40agoknights.com&amp;color=%232952A3&amp;ctz=America%2FChicago" style=" border-width:0;display:block;margin:auto" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div class="visible-sm visible-xs">
+                <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showNav=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23cccccc&amp;src=eunuch%40agoknights.com&amp;color=%232952A3&amp;ctz=America%2FChicago" style=" border-width:0;display:block;margin:auto " width="400" height="600" frameborder="0" scrolling="no"></iframe>
+            </div> 
+        </div>
+    </div>
+</div>

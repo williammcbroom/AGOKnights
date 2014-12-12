@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <title>@Page.Message - Alpha Gamma Omega</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+</head>
+    <body>
+        <!--Header-->
+        <div class="site-wrap">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="~/" title="Return to the Home Page">AGOKnights.com</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+
+                        <ul class="nav navbar-nav navbar-right nav" style="margin-right:0">
+                            <li title="What we're doing for recruiting!">@Html.ActionLink("Rush","Rush","Home")</li>
+                            <li title="The full text of Alpha's consitution">@Html.ActionLink("Constitution","Constitution","Home")</li>
+                            <li title="Current Officers of Alpha">@Html.ActionLink("Officers","Officers","Home")</li>
+                            <li title="Upcoming Events">@Html.ActionLink("Calendar","Calendar","Home")</li>
+                            <li title="Periodic updates from the Secretary and President">@Html.ActionLink("Knightly Knews","Knews","Home")</li>
+                            <!--<li>
+                                @{
+                                 //Html.Partial("_LoginPartial")   
+                                }
+                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--Body-->
+            <div class="container-fluid body">
+                <!--Featured Section-->
+                @RenderSection("featured", required: false)
+                <!--Main Body-->
+                @RenderBody()
+                <!--End all body-->
+                <!--Footer-->
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-12 hidden-xs hidden-print">
+                            <p>&copy; 2013-@DateTime.Now.Year - Alpha Gamma Omega</p>
+                        </div>
+                    </div>
+                </footer><!--End Footer-->
+            </div>
+        </div>
+        @RenderSection("Scripts", required: false)
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>
+        <!-- Bootstrap core JavaScript
+           ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!--
+    Okay guys, here's how this file works.
+    You do all your normal HTML page design, but before anything will display
+    you have to put an HTML comment in the page that says 
+    "Effective From: <date> To: <date>"
+    where <date> is in a MM/DD/YYYY time format, no spaces.
+    Both dates are inclusive, so if you want to start seeing the page on October 1st and end on October 31st,
+    the comment would read "Effective From: 10/01/2014 To: 10/31/2014".  
+    Then the parser will display everything below that for the month of October,
+    OR UNTIL YOU PUT A NEW EFFECTIVE DATE RANGE.
+    
+    Yes, you can build the page with lots of different date ranges, even overlapping date ranges.
+    The parser will read everything below a date range as effective that range until you put a new date range in.
+    These comments will not appear on the client side, ever, because it is before the first effective date range comment.
+    Likewise, you can put whatever you want before the first effective date range comment and it will NEVER show up on the site.
+    This is all in an HTML comment to make Visual Studio happy, not because it actually needs to be for the parser to work...
+-->
+<!--Effective From: 10/01/2014 To: 12/31/2014-->
+<h3>Todo: Add content</h3>
+
+<!--Effective From: 12/05/2014 To: 12/05/2014-->
+<h2>Happy birthday Mom!</h2>
+
+<!--Effective From: 12/01/2014 To: 12/25/2014-->
+<h1>MERRY CHRISTMAS!!</h1>
+
+<!--Effective From: 11/22/2014 To: 12/01/2014-->
+<h1>Happy Thanksgiving!!</h1>
+<p>Trying multiple lines just to verify parser is working right...</p>

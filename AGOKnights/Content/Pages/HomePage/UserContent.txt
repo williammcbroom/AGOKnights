@@ -1,0 +1,7 @@
+<!--Save as ANSI text or a weird byte-order character will display on the screen-->
+<h2>Quick Facts</h2>
+<ul>
+    <li>Our name comes from the Greek word "ago", which means "I lead", "I bring", "I go".</li>
+    <li>Our official colors are Black, Silver, and White</li>
+    <li>Our mascot is the Medieval Knight</li>
+</ul>

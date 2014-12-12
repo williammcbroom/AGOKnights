@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Page.Title = "Alpha Gamma Omega";
+    ViewBag.imageCount = ViewBag.photos.Length;
+    var sponsorFile = Server.MapPath("~/Content/Pages/HomePage/Sponsors.txt");
+    Array sponsors = File.ReadAllLines(sponsorFile);
+}
+
+<!--Jumbotron-->
+<div class="row">
+    <div class="col-lg-offset-1 col-lg-10 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="jumbotron">
+            <h1 class="hidden-xs">@Page.Title</h1>
+            <h2>Alpha is a group of Christian brothers whose ultimate goal is to imitate the servant leadership of our savior, Jesus Christ.</h2>
+        </div>
+    </div>
+</div>
+
+<!--Quick Facts-->
+<div class="row">
+        <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12">
+            @Html.Action("GetHtmlPage", "Home", new { path = "~/Content/Pages/HomePage/UserContent.txt" })   
+            
+        </div>
+    <!--Photo Carousel-->
+    <div class="col-lg-5 col-md-6 col-sm-6 hidden-xs hidden-print">
+        <div id="photo-carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                @{
+                    bool first = true;
+                    for (int i = 0; i < ViewBag.imageCount; i++)
+                    {
+                        <li data-target="#photo-carousel" data-slide-to="@i" @(first ? "class=\"active\"" : "")></li>
+                    }
+                }
+            </ol>
+            <!--Wrapper for slides-->
+            <div class="carousel-inner">
+                @{
+                    first = true;
+
+                    foreach (string photo in ViewBag.photos)
+                    {
+                        string caption = photo.Substring(photo.LastIndexOf('\\') + 1);
+                        caption = caption.Substring(0, caption.LastIndexOf('.'));
+                        string source = "Images/HomePage/" + caption + ".jpg";
+                        <div class= "@(first == true ? "item active" : "item")">
+                            <img src="@source.Replace(" ","%20")" />
+                            <div class="carousel-caption">
+                                @caption
+                            </div>
+                        </div>
+                        first = false;   
+                    }
+                }
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#photo-carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#photo-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--Creed, Verses and Sponsors-->
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <h3>Our Creed</h3>
+                <p>
+                    The purpose of Alpha Gamma Omega (as per our constitution) is to instill in her members:
+                    <ol>
+                        <li><em>An Obligation to God</em> - We are composed of dedicated men that bring each other closer to God through Christ and grow with each other in fellowship.</li>
+                        <li><em>An Obligation to Club Spirit and Brotherhood</em> - We strive to give her members a sense of duty and obligation to the club's activities and to have an incredibly strong, fierce sense of spirit for the club.</li>
+                        <li><em>An Obligation to Excellence</em> - We strive not to obtain trophies, rather for excellence in all we do.</li>
+                    </ol>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <h3>Our Verses</h3>
+                <ul>
+                    <li>Psalm 133:1 <em>"Behold, how good and pleasant it is when brothers dwell together in unity!"</em> (RSV)</li>
+                    <li>II Timothy 1:7 <em>"For God did not give us a spirit of timidity, but a spirit of power, love and self-discipline."</em> (NIV)</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <h3>Our Sponsors</h3>
+                <ul>
+                    @{
+                        foreach (string sponsor in sponsors)
+                        {
+                            <li>@sponsor</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
