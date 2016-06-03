@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Page.Title = "Alpha Pictures";
+    ViewBag.imageCount = ViewBag.photos.Length;
+}
+
+<div class="row">
+    <!--Photo Carousel-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-print">
+        <div class="jumbotron">
+            <div id="photo-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @{
+                        bool first = true;
+                        for (int i = 0; i < ViewBag.imageCount; i++)
+                        {
+                            <li data-target="#photo-carousel" data-slide-to="@i" @(first ? "class=\"active\"" : "")></li>
+                        }
+                    }
+                </ol>
+                <!--Wrapper for slides-->
+                <div class="carousel-inner">
+                    @{
+                        first = true;
+
+                        foreach (string photo in ViewBag.photos)
+                        {
+                            string caption = photo.Substring(photo.LastIndexOf('\\') + 1);
+                            caption = caption.Substring(0, caption.LastIndexOf('.'));
+                            string source = "/Images/HomePage/" + caption + ".jpg";
+                            <div class="@(first == true ? "item active" : "item")">
+                                <img src="@source.Replace(" ","%20")" />
+                                <div class="carousel-caption">
+                                    @caption
+                                </div>
+                            </div>
+                            first = false;
+                        }
+                    }
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#photo-carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#photo-carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -242,7 +242,9 @@
     <Content Include="AGOKnightsDBModel.edmx.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_backup.css" />
     <Content Include="Content\Pages\HomePage\Sponsors.txt" />
+    <Content Include="Content\Pages\HomePage\EventDetails.txt" />
     <Content Include="Content\Pages\HomePage\UserContent.txt" />
     <Content Include="Content\Pages\Knews\MonarchMessage.txt" />
     <Content Include="Content\Pages\Knews\ScribeScribble.txt" />
@@ -251,6 +253,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\HomeBkg\bg-001.jpg" />
+    <Content Include="Images\HomeBkg\bg-002.jpg" />
+    <Content Include="Images\HomeBkg\bg-003.jpg" />
+    <Content Include="Images\HomeBkg\bg-004.jpg" />
+    <Content Include="Images\HomeBkg\bg-005.jpg" />
+    <Content Include="Images\HomeBkg\bg-006.jpg" />
+    <Content Include="Images\HomeBkg\bg-007.jpg" />
+    <Content Include="Images\HomeBkg\bg-008.jpg" />
+    <Content Include="Images\Site\nav-calendar.png" />
+    <Content Include="Images\Site\nav-home.png" />
+    <Content Include="Images\Site\nav-rush.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="AGOKnightsDBModel.edmx">
@@ -275,6 +288,8 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
       <DependentUpon>AGOKnightsDBModel.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\MuseoSlab-500.otf" />
+    <Content Include="fonts\MuseoSlab-500Italic.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -317,6 +332,9 @@
     <Content Include="Views\Home\Knews.cshtml" />
     <Content Include="Views\Home\Constitution.cshtml" />
     <Content Include="Views\Home\Rush.cshtml" />
+    <Content Include="Views\Home\Pictures.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,48 +5,42 @@
    
 }
 
-<h2>Knightly Knews</h2>
-<div class="row">
-    <div class="col-lg-offset-1 col-lg-5 col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
-        <h3>Latest Knews</h3>
-        <ul>
-        @{
-            string latestKnewsArticle = string.Empty;
-            string latestKnewsName = string.Empty;
-            DateTime latestKnewsTime = new DateTime(2000,01,01);
-            foreach (string article in ViewBag.articles)
-            {
-            string name = article.Substring(article.LastIndexOf('\\') + 1); //strip the file path off
-            name =  (name == null ? null : name.Substring(0,name.LastIndexOf('.'))); //strip the document format off
-               if(File.GetLastWriteTime(article) > latestKnewsTime)
-               {
-                   latestKnewsArticle = article;
-                   latestKnewsName = name;
-                   latestKnewsTime = File.GetLastWriteTime(article);
-               }
-                string url = ".." + ViewBag.ContentPath + "/" + name.Replace(" ", "%20").Replace("&","%amp;") + ViewBag.FileExtension;     
-                <li><a href=@url>@name</a></li>
-            }
-           
-        }
-        </ul>
-        <br /><small>Latest Knews: @latestKnewsName on @latestKnewsTime.ToShortDateString()</small>
-    </div>
-    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12"> 
-                <h3>Monarch's Message</h3>
-                @Html.Action("GetHtmlPage", "Home", new { path = "~/Content/Pages/Knews/MonarchMessage.txt" })
-                <br /><small>Last updated @File.GetLastWriteTime(Server.MapPath("~/Content/Pages/Knews/MonarchMessage.txt")).ToShortDateString()</small> 
-            </div> 
+<div class="jumbotron">
+    <div class="row">
+        <h1>Knightly Knews</h1>
+        <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+            <h2>Latest Knews</h2>
+            <ul>
+                @{
+                    string latestKnewsArticle = string.Empty;
+                    string latestKnewsName = string.Empty;
+                    DateTime latestKnewsTime = new DateTime(2000, 01, 01);
+                    foreach (string article in ViewBag.articles)
+                    {
+                        string name = article.Substring(article.LastIndexOf('\\') + 1); //strip the file path off
+                        name = (name == null ? null : name.Substring(0, name.LastIndexOf('.'))); //strip the document format off
+                        if (File.GetLastWriteTime(article) > latestKnewsTime)
+                        {
+                            latestKnewsArticle = article;
+                            latestKnewsName = name;
+                            latestKnewsTime = File.GetLastWriteTime(article);
+                        }
+                        string url = ".." + ViewBag.ContentPath + "/" + name.Replace(" ", "%20").Replace("&", "%amp;") + ViewBag.FileExtension;
+                        <li><a href=@url>@name</a></li>
+                    }
+
+                }
+            </ul>
+            <br /><small>Latest Knews: @latestKnewsName on @latestKnewsTime.ToShortDateString()</small>
         </div>
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
-                <h3>Scribe's Scribble</h3>
-                @Html.Action("GetHtmlPage", "Home", new { path = "~/Content/Pages/Knews/ScribeScribble.txt" })
-                <br /><small>Last updated @File.GetLastWriteTime(Server.MapPath("~/Content/Pages/Knews/ScribeScribble.txt")).ToShortDateString()</small>
+        <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2>Scribe's Scribble</h2>
+                    @Html.Action("GetHtmlPage", "Home", new { path = "~/Content/Pages/Knews/ScribeScribble.txt" })
+                    <br /><small>Last updated @File.GetLastWriteTime(Server.MapPath("~/Content/Pages/Knews/ScribeScribble.txt")).ToShortDateString()</small>
+                </div>
             </div>
         </div>
     </div>
-    
-</div>
+</div>  

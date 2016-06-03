@@ -1,9 +1,16 @@
 ﻿
 @{
     ViewBag.Title = "Rush";
+    Page.Title = "Rush";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Rush</h2>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="align-content:center">
+        <div class="jumbotron">
+            <h1>@Page.Title</h1>
+        </div>
+    </div>
+</div>
 
 @Html.Raw(ViewBag.rushContent)

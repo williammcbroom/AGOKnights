@@ -98,5 +98,12 @@ namespace AGOKnights.Controllers
             ViewBag.rushContent = htmlOutput;
             return View();
         }
+
+        public ActionResult Pictures()
+        {
+            string[] photos = Directory.GetFiles(Server.MapPath("~/Images/HomePage/"), "*.jpg");
+            ViewBag.photos = photos;
+            return View();
+        }
     }
 }
