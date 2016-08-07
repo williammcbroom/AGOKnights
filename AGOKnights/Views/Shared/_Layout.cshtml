@@ -101,7 +101,7 @@
                 var displayed = "hidden";
 
                 if ($(window).width() >= 1200) {
-                    $(".event-name").click(function () {
+                    $(".event-banner").click(function () {
                         if (displayed == "hidden") {
                             $(".event-details").slideToggle("medium");
                             $(".event-arrow").animate({
@@ -124,7 +124,7 @@
                     });
                 }
                 else if (($(window).width() >= 992) && ($(window).width() <= 1199)) {
-                    $(".event-name").click(function () {
+                    $(".event-banner").click(function () {
                         if (displayed == "hidden") {
                             $(".event-details").slideToggle("medium");
                             $(".event-arrow").animate({
@@ -147,7 +147,7 @@
                     });
                 }
                 else if (($(window).width() >= 768) && ($(window).width() <= 991)) {
-                    $(".event-name").click(function () {
+                    $(".event-banner").click(function () {
                         if (displayed == "hidden") {
                             $(".event-details").slideToggle("medium");
                             $(".event-arrow").animate({
