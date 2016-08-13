@@ -19,8 +19,6 @@ namespace AGOKnights.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -47,7 +45,7 @@ namespace AGOKnights.Controllers
 
         public ActionResult Knews()
         {
-            ViewBag.FileExtension = ".docx";
+            ViewBag.FileExtension = ".pdf";
             ViewBag.ContentPath = "/Content/Pages/Knews";
             string[] articles = Directory.GetFiles(Server.MapPath("~" + ViewBag.ContentPath), "*" + ViewBag.FileExtension);
             ViewBag.Message = "Knightly Knews";

@@ -47,7 +47,7 @@
                     <ul class="nav navbar-nav">
                         <li class="nav-home" title="Return to the Home Page">@Html.ActionLink(" ", "Index", "Home")</li>
                         <li class="nav-rush" title="What we're doing for recruiting!">@Html.ActionLink(" ", "Rush", "Home")</li>
-                        <li class="nav-constitution" title="The full text of Alpha's consitution">@Html.ActionLink(" ", "Constitution", "Home")</li>
+                        <li class="nav-constitution" title="Essential info about Alpha Gamma Omega">@Html.ActionLink(" ", "About", "Home")</li>
                         <li class="nav-officers" title="Current Officers of Alpha">@Html.ActionLink(" ", "Officers", "Home")</li>
                         <li class="nav-calendar" title="Upcoming Events">@Html.ActionLink(" ", "Calendar", "Home")</li>
                         <li class="nav-news" title="Periodic updates from the Secretary and President">@Html.ActionLink(" ", "Knews", "Home")</li>
@@ -70,11 +70,13 @@
                 <!--End all body-->
             </div>
             <!--Footer-->
-            <footer>
+
+            @*<footer>
                 <div class="hidden-xs hidden-print text-right">
                     <p>&copy; 2013-@DateTime.Now.Year - Alpha Gamma Omega</p>
                 </div>
-            </footer>
+            </footer>*@
+
             <!--End Footer-->
         </div>
         @RenderSection("Scripts", required: false)

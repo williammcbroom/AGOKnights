@@ -1,0 +1,259 @@
+Table of Contents
+
+A.	Introduction
+B.	Change Log
+C.	How to Edit the Different Pages
+D.	About the HomeController.cs
+E.	How To Edit the Appearance of the Website (aka edit the CSS)
+F.	About the Fonts
+G.	How to Change the Background Images
+H.	How to Add/Change Images in the Gallery
+I.	Where Are the Images Used in the Website Design Stored?
+J.	How to Edit the Home Page Content
+K.	How to Change the Details of the Event Banner
+L.	How to Edit the Rush Page
+M.	How to Edit the Officers Page
+N.	How To Add a New Edition of the Knightly Knews
+O.	How To Edit the Monarch’s Message Section
+P.	How To Edit the Scribe’s Scribbles Section
+Q.	How To Edit the Sponsors List
+R.	How To Edit the Quick Facts
+
+--- A. Introduction ---
+
+Welcome, Alpha Webmaster (aka Alchemist). Thank you for being willing to help manage the Alpha website. This documentation will show you how all of the content can be edited. The code was developed on Visual Studio 15 Community, which at the time of this writing is free. I recommend you use this program to work on the code. The website code is located on a GitHubt repository at https://github.com/OCAlpha/AGOKnights/
+
+This guide is written so that someone with only a minimal amount of website design knowledge can update the site if needed. If you don’t know basic HTML, I don’t advise trying to fool around with the website. It’ll probably look like Greek to you anyway. However, I suppose that isn’t so bad if you’re a Bible major, but whatever…
+
+On with the guide!
+
+
+
+--- B. Change Log ---
+
+10 August, 2016 – Minor Edits – Eric Falley
+8 July, 2016 – First version – Eric Falley
+
+
+
+--- C. How to Edit the Different Pages ---
+
+The .cshtml files where you can edit the content for each page are located at:
+
+	/Views/Home/
+
+The only page that will likely have to be updated on a regular basis is the Officers.cshtml page. It’s just HTML.
+
+The home page’s content is actually mostly located on a different page:
+
+	/Views/Shared/_Layout.cshtml
+
+
+
+--- D. About the HomeController.cs ---
+
+This file is located at:
+
+	/Controllers/HomeController.cs
+
+Its job is load up specific content on particular pages that isn’t easily done with HTML. Here’s what it does at the moment:
+
+1.	Loads the images for the gallery on the home page
+2.	Loads the stored Knightly Knews files for the News page
+3.	Runs the code that allows content on the Rush page to only be viewable during a certain time period (i.e. Rush season)
+
+
+
+--- E. How to Edit the Appearance of the Website (aka edit the CSS) ---
+
+If you don’t know what CSS is, I advise you inform yourself before you edit the appearance of the website. No one wants a bug to appear because you didn’t know what you’re doing. ;) Besides, CSS is fun and easy to use.
+
+However, if you’re the Alpha Webmaster you probably already know CSS, so what you probably want to know is where the .css file is located. It’s here:
+
+	/Content/Pages/bootstrap.css
+
+One note, the site is built on Twitter Bootstrap as a base. Therefore, there is a fair bit of code that isn’t used by the site. One nice feature is that the CSS can choose to display or not display content based on the window size. On smaller screen sizes, this is used to create a dropdown menu rather than the default horizontal menu on larger monitors.
+
+
+
+--- F. About the Fonts ---
+
+The site uses fonts that viewers likely already have installed with one exception, Museo Slab. This is Alpha’s characteristic font. This font is stored at
+
+	/fonts/MuseoSlab-500.otf
+
+
+
+--- G. How to Change the Background Images ---
+
+The background images are .jpg images chosen at random from the images stored in this location:
+
+	/Images/HomeBkg/
+
+Store any new background images in this location. However, you must also add the images to this page:
+
+	/Views/Shared_Layout.cshtml
+
+Find the section headed by this HTML comment tag:
+
+	<!-- Randomize Background Image with jQuery--> 
+
+Add the image filename with the .jpg extension to the list of images on this line:
+
+	var images = ['bg-001.jpg', …
+
+
+
+--- H. How to Add/Change Images in the Gallery ---
+
+Just add new images to this location:
+
+	/Images/HomePage/
+
+The filename of the image is used for the caption. The images have to have a .jpg file extension.
+
+
+
+--- I. Where Are the Images Used in the Website Design Stored? ---
+
+The images that are used in the site’s design are stored at:
+
+	/Images/Site/
+
+
+
+--- J. How to Edit the Home Page Content ---
+
+The home page can be edited at:
+
+	/Views/Shared/_Layout.cshtml
+
+The content on this page probably won’t have to be edited except when adding images to be randomly selected as the background image for the site. To do this, find the section on how to add background images to the site.
+
+
+
+--- K. How to Change the Details of the Event Banner ---
+
+The home page has an event banner at the bottom left of the page. To edit this, go to:
+
+	/Content/Pages/HomePage/EventDetails.txt
+
+This file is just an HTML file. All that should have to be edited is the content inside the <span> tags with the event-details-text class. The text file should already be in ANSI text format, but make sure to save in this format or else weird characters will appear.
+
+The title of the event has to be edited in the Index file at:
+
+	/Views/Home/Index.cshtml
+
+
+
+--- L. How to Edit the Rush Page ---
+
+The Rush page can be edited here:
+
+	/Content/Pages/Rush/rushContent.html
+
+The Rush Page has a special feature that allows the content to automatically be removed after a certain date. The file itself contains instructions, as given below:
+
+Okay guys, here's how this file works.
+You do all your normal HTML page design, but before anything will display
+you have to put an HTML comment in the page that says 
+    "Effective From: <date> To: <date>"
+where <date> is in a MM/DD/YYYY time format, no spaces. Both dates are inclusive, so if you want to start seeing the page on October 1st and end on October 31st, the comment would read "Effective From: 10/01/2014 To: 10/31/2014". Then the parser will display everything below that for the month of October, OR UNTIL YOU PUT A NEW EFFECTIVE DATE RANGE.
+
+Yes, you can build the page with lots of different date ranges, even overlapping date ranges. The parser will read everything below a date range as effective that range until you put a new date range in. These comments will not appear on the client side, ever, because it is before the first effective date range comment. Likewise, you can put whatever you want before the first effective date range comment and it will NEVER show up on the site. This is all in an HTML comment to make Visual Studio happy, not because it actually needs to be for the parser to work...
+
+
+
+--- M. How to Edit the Officers Page ---
+
+The page to edit this info is at:
+
+	/Views/Home/Officers.cshtml
+
+It’s just HTML.
+
+
+
+--- N. How To Add a New Edition of the Knightly Knews ---
+
+The Knightly Knews is Alpha’s newsletter. In order to enter a new edition to the website that people can download, upload add the file with a .docx extension to this location:
+
+	/Content/Pages/Knews/
+
+Do note that the current version of the website (as of July 8, 2016) only displays a download link for files with a .docx extension. The code that displays the download links can currently only display files of one single filetype.
+
+To change the filetype of the files that can be displayed, go to:
+
+	/Controllers/HomeController.cs
+
+In the Knews() section, find the line
+
+	ViewBag.FileExtension = ".docx";
+
+Then, change the filetype in quotation marks to whatever filetype you desire.
+
+Someone with more knowhow than me (Eric Falley) could probably look at this whole chunk of code and figure out how to enable multiple filetypes to be displayed.
+
+
+
+--- O. How To Edit the Monarch’s Message Section ---
+
+The Monarch’s Message has been defunct for several years, but in case it is revived, it can be displayed on the News page. Essentially, it is a message sent out periodically from the President. To edit it, go to:
+
+	/Content/Pages/Knews/MonarchMessage.txt
+
+This file just includes HTML. Enter whatever HTML code you want to display. The text file should already be in ANSI text format, but make sure to save in this format or else weird characters will appear.
+
+
+
+--- P. How To Edit the Scribe’s Scribbles Section ---
+
+The Scribe’s Scribbles might no longer be around, but in case it is revived, it can be displayed on the News page. Essentially, it is an update from the Secretary on events that are coming up in the next week or two. To edit it, go to:
+
+	/Content/Pages/Knews/ScribeScribble.txt
+
+This file just includes HTML. Enter whatever HTML code you want to display. The text file should already be in ANSI text format, but make sure to save in this format or else weird characters will appear.
+
+
+
+--- Q. How To Edit the Sponsors List ---
+
+Go to:
+
+	/Content/Pages/HomePage/Sponsors.txt
+
+Put each sponsor on individual lines.
+
+Note: this list is not currently displayed. To display it on the home page add this code:
+
+@{
+foreach (string sponsor in sponsors)
+{
+<li>@sponsor</li>
+}
+}
+
+To this page:
+
+	/Views/Home/Index.cshtml
+
+For any other page, use this code:
+
+@Html.Action("GetHtmlPage", "Home", new { path 
+="~/Content/Pages/HomePage/Sponsors.txt" })
+
+
+
+--- R. How To Edit the Quick Facts ---
+
+Go to:
+
+	/Content/Pages/HomePage/UserContent.txt
+
+This file just includes HTML. Enter whatever HTML code you want to display. The text file should already be in ANSI text format, but make sure to save in this format or else weird characters will appear.
+
+Note: this info is not currently displayed. To display it, add this code to any of the content pages in the /Views/Home/ directory:
+
+@Html.Action("GetHtmlPage", "Home", new { path 
+="~/Content/Pages/HomePage/UserContent.txt" })
+

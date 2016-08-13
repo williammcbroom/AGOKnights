@@ -1430,7 +1430,7 @@ pre code {
   background-color: transparent;
   border-radius: 0;
 }
-.pre-scrollable {https://localhost:44300/Home/Constitution
+.pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
 }
@@ -6508,10 +6508,49 @@ a.event-name:focus {
     background-size: cover;
 }
 
-.banner-img {
-    padding-left: 15px;
-    margin-top: -15px;
-    position: relative;
+@media (min-width: 768px) {
+
+    .banner-img {
+        padding-left: 15px;
+        margin-top: -15px;
+        position: relative;
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-img {
+        padding-left: 15px;
+        margin-top: -15px;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.social-banners {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social-banners a {
+    margin-left: 10px;
+    display: block;
+}
+
+.facebook-banner {
+    background: url(/Images/Site/social-facebook.png);
+    background-size: cover;
+}
+
+.twitter-banner {
+    background: url(/Images/Site/social-twitter.png);
+    background-size: cover;
+}
+
+.youtube-banner {
+    background: url(/Images/Site/social-youtube.png);
+    background-size: cover;
 }
 
 
@@ -6609,6 +6648,14 @@ a.event-name:focus {
         left: 84px;
         top: -25px; /* 72px */
     }
+    .social-banners {
+        top: 55px;
+        right: 140px;
+    }
+    .social-banners a {
+        width: 61px;
+        height: 95px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -6705,9 +6752,16 @@ a.event-name:focus {
         top: -22px; /* 61px */
     }
     .banner-img img {
-        width: 50%;
+        width: 100%;
         height: auto;
-        max-width: 50%;
+    }
+    .social-banners {
+        top: 47px;
+        right: 120px;
+    }
+    .social-banners a {
+        width: 50px;
+        height: 77px;
     }
 }
 
@@ -6806,9 +6860,16 @@ a.event-name:focus {
         top: -18px; /* 48px */
     }
     .banner-img img {
-        width: 50%;
+        width: 100%;
         height: auto;
-        max-width: 50%;
+    }
+    .social-banners {
+        top: 38px;
+        right: 100px;
+    }
+    .social-banners a {
+        width: 40px;
+        height: 62px;
     }
 }
 
@@ -6879,7 +6940,6 @@ a.event-name:focus {
     .banner-img img {
         width: 100%;
         height: auto;
-        max-width: 100%;
     }
     ul.navbar-nav {
         background-color: rgba(50,50,50,0.6);
@@ -6951,7 +7011,6 @@ a.event-name:focus {
     }
     .banner-img img {
         width: 100%;
-        max-width: 100%;
         height: auto;
     }
     ul.navbar-nav {

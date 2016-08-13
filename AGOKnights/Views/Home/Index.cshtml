@@ -6,12 +6,19 @@
     Array sponsors = File.ReadAllLines(sponsorFile);
 }
 
+<div class="social-banners hidden-xs">
+    <a class="facebook-banner" href="https://www.facebook.com/Alpha-Gamma-Omega-1676500145895412/home" title="Facebook"> </a>
+    <!-- Alpha doesn't have a Twitter or Youtube channel yet
+    <a class="twitter-banner" href="#" title="Twitter"> </a>
+    <a class="youtube-banner" href="#"title="Youtube"> </a> -->
+</div>
+
 <div class="banner-img"><img src="/Images/Site/logo-banner.png" /></div>
 <!-- If Small screen size or bigger -->
 <div class="event-banner hidden-xs">
     <div class="event-arrow"></div>
     <div class="event-title">
-        <a class="event-name">New Year's Day Celebration</a>
+        <a class="event-name">Club Night</a> <!-- Make sure to change this below for smaller screen sizes! -->
     </div>
     <div class="event-details">
         @Html.Action("GetHtmlPage", "Home", new { path = "~/Content/Pages/HomePage/EventDetails.txt" })
@@ -21,7 +28,7 @@
 <!-- If Extra Small screen size or smaller -->
 <div class="event-title hidden-lg hidden-md hidden-sm">
     <span class="event-coming-up">Coming Up Next:</span>
-    <span class="event-name">New Year's Day Celebration</span>
+    <span class="event-name">Club Night</span> <!-- Make sure to change this above for larger screen sizes! -->
 </div>
 <div class="event-details hidden-lg hidden-md hidden-sm">
     @Html.Action("GetHtmlPage", "Home", new { path = "~/Content/Pages/HomePage/EventDetails.txt" })

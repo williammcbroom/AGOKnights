@@ -254,6 +254,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Help File - Read This First!\Alpha Website Documentation.txt" />
     <Content Include="Images\HomeBkg\bg-001.jpg" />
     <Content Include="Images\HomeBkg\bg-002.jpg" />
     <Content Include="Images\HomeBkg\bg-003.jpg" />
@@ -262,9 +263,28 @@
     <Content Include="Images\HomeBkg\bg-006.jpg" />
     <Content Include="Images\HomeBkg\bg-007.jpg" />
     <Content Include="Images\HomeBkg\bg-008.jpg" />
+    <Content Include="Images\Site\arrow-down.png" />
+    <Content Include="Images\Site\arrow-up.png" />
+    <Content Include="Images\Site\corner-left.png" />
+    <Content Include="Images\Site\corner-right.png" />
+    <Content Include="Images\Site\event-banner-repeat.png" />
+    <Content Include="Images\Site\event-banner-shadow.png" />
+    <Content Include="Images\Site\event-banner.png" />
+    <Content Include="Images\Site\logo-banner.png" />
+    <Content Include="Images\Site\nav-about.png" />
+    <Content Include="Images\Site\nav-alumni.png" />
     <Content Include="Images\Site\nav-calendar.png" />
     <Content Include="Images\Site\nav-home.png" />
+    <Content Include="Images\Site\nav-news.png" />
+    <Content Include="Images\Site\nav-officers.png" />
+    <Content Include="Images\Site\nav-pictures.png" />
     <Content Include="Images\Site\nav-rush.png" />
+    <Content Include="Images\Site\side-repeat-left.png" />
+    <Content Include="Images\Site\side-repeat-right.png" />
+    <Content Include="Images\Site\social-facebook.png" />
+    <Content Include="Images\Site\social-twitter.png" />
+    <Content Include="Images\Site\social-youtube.png" />
+    <Content Include="Images\Site\top-repeat.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="AGOKnightsDBModel.edmx">
@@ -291,6 +311,7 @@
     </Content>
     <Content Include="fonts\MuseoSlab-500.otf" />
     <Content Include="fonts\MuseoSlab-500Italic.otf" />
+    <Content Include="Help File - Read This First!\Alpha Website Documentation.docx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

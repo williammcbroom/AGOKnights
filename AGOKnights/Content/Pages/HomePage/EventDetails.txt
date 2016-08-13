@@ -1,12 +1,12 @@
 <!--Save as ANSI text or a weird byte-order character will display on the screen-->
-<!--The name of the event is edited in _Layout.cshtml-->
+<!--The name of the event is edited in /Views/Home/Index.cshtml-->
 <div class="event-details-bkg">
 	<div class="event-details">
 		<span class="event-details-header">When</span>
-		<span class="event-details-text">January 1, 2016</span> <!-- Edit here -->
+		<span class="event-details-text">September 6, 2016 at 7:00pm</span> <!-- Edit here -->
 		<span class="event-details-header">Where</span>
-		<span class="event-details-text">Your home or with friends.</span> <!-- Edit here -->
+		<span class="event-details-text">Hardeman Auditorium</span> <!-- Edit here -->
 		<span class="event-details-header">What</span>
-		<span class="event-details-text">Celebrate the new year!</span> <!-- Edit here -->
+		<span class="event-details-text">Come meet potential rushees and share what Alpha is like!</span> <!-- Edit here -->
 	</div>
 </div>
