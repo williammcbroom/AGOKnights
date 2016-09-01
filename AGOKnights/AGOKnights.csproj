@@ -312,6 +312,7 @@
     <Content Include="fonts\MuseoSlab-500.otf" />
     <Content Include="fonts\MuseoSlab-500Italic.otf" />
     <Content Include="Help File - Read This First!\Alpha Website Documentation.docx" />
+    <None Include="Properties\PublishProfiles\Virgil-AGOKnights.com.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
